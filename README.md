@@ -1,5 +1,7 @@
 ArduSat SDK
 ===========
+Version 1.0
+Updated 5/13/13
 
 Arduino libraries used for ArduSat.
 
