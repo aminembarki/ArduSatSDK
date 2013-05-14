@@ -1,5 +1,7 @@
 /* 
-    AppStorage.h - Library to write arduino application data from arduino->supervisor.
+    AppStorage.h - Library that signals, to the supervisor, the end of
+    an experimental instance.
+
     Copyright (C) 2013 Jorge Ortiz for NanoSatisfi
 
     This program is free software: you can redistribute it and/or modify
@@ -23,17 +25,17 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include <Arduino.h>
+#include <OnboardCommLayer.h>
 
 class System
 {
     private:
         uint8_t _local_address;
-        int _exit_status;
-        boolean _set;
+        OnboardCommLayer* _ocl;
+        byte _buff[NODE_COMM_MAX_I2C_BUFFER_SIZE];
     public:
-        System(uint8_t id);
-        void exit(uint8_t status);
-        void onRequestEvent();
+        System(uint8_t nodeid);
+        void exit();
 };
 
 #endif

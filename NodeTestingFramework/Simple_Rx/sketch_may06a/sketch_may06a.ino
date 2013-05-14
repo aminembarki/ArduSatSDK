@@ -30,5 +30,5 @@ void __onReceive(int bytes){
   Serial.print("received:");Serial.println(bytes);
   while(Wire.available())
     Wire.read();
-  send_response = true;
+  //send_response = true;
 }
